@@ -10,7 +10,7 @@
 const slidePosition = 0;
 
 // gather a reference to every slide we're using via the class name and querySelectorAll
-const slides = document.querySelectorAll('.carousel_item');
+const slides = document.querySelectorAll(".carousel_item");
 
 // change that "NodeList" into a Javascript "array", to get access to "array methods"
 const slidesArray = Array.from(slides);
@@ -23,7 +23,6 @@ function updateSlidePosition() {
   // loop through all the slides in your slideArray
   // and remove the 'visible' class from each classList
   // then add a class 'hidden' to all of them
-
   // outside your .forEach,
   // add a 'visible' class to the slide at the current slidePosition in slides
 }
@@ -52,9 +51,19 @@ function moveToPrevSlide() {
   These two functions have been assigned via "addEventListener"
   to the elements accessed by the "querySelector" set to the class name on each
 */
-document.querySelector('.next') // Get the appropriate element (<button class="next">)
-  .addEventListener('click', () => { // set an event listener on it - when it's clicked, do this callback function
-    console.log('clicked next'); // let's tell the client console we made it to this point in the script
+document
+  .querySelector(".next") // Get the appropriate element (<button class="next">)
+  .addEventListener("click", () => {
+    // set an event listener on it - when it's clicked, do this callback function
+    console.log("clicked next"); // let's tell the client console we made it to this point in the script
+    moveToNextSlide(); // call the function above to handle this
+  });
+
+document
+  .querySelector(".prev") // Get the appropriate element (<button class="next">)
+  .addEventListener("click", () => {
+    // set an event listener on it - when it's clicked, do this callback function
+    console.log("clicked prev"); // let's tell the client console we made it to this point in the script
     moveToNextSlide(); // call the function above to handle this
   });
 
