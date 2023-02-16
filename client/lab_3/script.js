@@ -37,8 +37,8 @@ function moveToNextSlide() {
 }
 
 function moveToPrevSlide() {
-  if (slidePosition === totalSlides) {
-    slidePosition = 0;
+  if (slidePosition === 0) {
+    slidePosition = totalSlides;
   } else {
     slidePosition -= 1;
   }
@@ -69,7 +69,7 @@ document
   .addEventListener("click", () => {
     // set an event listener on it - when it's clicked, do this callback function
     console.log("clicked prev"); // let's tell the client console we made it to this point in the script
-    moveToPrevSlide(); // call the function above to handle this
+    moveToSlide(); // call the function above to handle this
   });
 
 // Paying close attention to the above queryselector, write one that fires
