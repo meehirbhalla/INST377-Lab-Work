@@ -69,7 +69,7 @@ document
   .addEventListener("click", () => {
     // set an event listener on it - when it's clicked, do this callback function
     console.log("clicked prev"); // let's tell the client console we made it to this point in the script
-    moveToSlide(); // call the function above to handle this
+    moveToPrevSlide(); // call the function above to handle this
   });
 
 // Paying close attention to the above queryselector, write one that fires
