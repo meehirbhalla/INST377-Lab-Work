@@ -23,7 +23,7 @@ function updateSlidePosition() {
     slide.classList.remove("visible");
     slide.classList.add("hidden");
   });
-  
+
   slides[slidePosition].classList.add("visible");
 }
 
@@ -37,6 +37,11 @@ function moveToNextSlide() {
 }
 
 function moveToPrevSlide() {
+  if (slidePosition === totalSlides) {
+    slidePosition = 0;
+  } else {
+    slidePosition -= 1;
+  }
   // add your code in here for when you click the "prev" button
   /*
     add an if statement here that checks
@@ -64,7 +69,7 @@ document
   .addEventListener("click", () => {
     // set an event listener on it - when it's clicked, do this callback function
     console.log("clicked prev"); // let's tell the client console we made it to this point in the script
-    moveToNextSlide(); // call the function above to handle this
+    moveToPrevSlide(); // call the function above to handle this
   });
 
 // Paying close attention to the above queryselector, write one that fires
