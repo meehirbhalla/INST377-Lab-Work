@@ -23,12 +23,12 @@ function updateSlidePosition() {
     slide.classList.remove("visible");
     slide.classList.add("hidden");
   });
-
+  
   slides[slidePosition].classList.add("visible");
 }
 
 function moveToNextSlide() {
-  if (slidePosition === totalSlides) {
+  if (slidePosition === totalSlides - 1) {
     slidePosition = 0;
   } else {
     slidePosition += 1;
