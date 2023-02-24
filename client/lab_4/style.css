@@ -126,7 +126,6 @@ form {
 }
 
 .left_section {
-  border-style: dashed;
   background-color: rgba(0, 139, 139, 0.8);
   flex: 0 1 auto;
   margin: 1rem;
@@ -134,7 +133,6 @@ form {
 }
 
 .right_section {
-  border-style: dashed;
   background-color: rgba(255, 224, 138, 0.7);
   flex: 1 2 auto;
   margin: 1rem;
