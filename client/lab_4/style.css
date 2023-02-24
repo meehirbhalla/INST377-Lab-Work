@@ -5,8 +5,8 @@ Form Styles
 form input {
   /* This is a hack to make sure our boxes line up with one another nicely */
   width: 100%;
-  width: -moz-available;          /* WebKit-based browsers will ignore this. */
-  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: -moz-available; /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   width: fill-available;
 
   /* here we are setting white space correctly */
@@ -17,8 +17,8 @@ form input {
 
 form label {
   width: 100%;
-  width: -moz-available;          /* WebKit-based browsers will ignore this. */
-  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: -moz-available; /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
   width: fill-available;
   align-items: flex-start;
 
@@ -28,7 +28,7 @@ form label {
 
 /* How To Write A Media Query For Small Screens */
 
-@media only screen and (max-width: 736px){
+@media only screen and (max-width: 736px) {
   /* Rules in here will only apply when a screen is the correct size */
   /* check it out by using your developer tools to shrink your screen-size */
   .container {
