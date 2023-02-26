@@ -76,10 +76,12 @@ form {
 }
 
 .header {
-  padding-top: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1.5rem;
+  flex-shrink: 0;
+  padding: 1rem;
+  background-color: #c7d59f;
+  color: #4b5842;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 /*
@@ -174,7 +176,7 @@ form {
   /* Hue, saturation, luminosity, alpha */
   background-color: hsla(0, 0%, 90%, 0.15);
   /* red, green, blue, alpha */
-  color: rgb(246, 169, 93);
+  color: rgb(214, 255, 102);
   text-decoration: none;
 }
 
@@ -305,7 +307,7 @@ form label {
   /* check it out by using your developer tools to shrink your screen-size */
   .container {
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
   .right_section {
