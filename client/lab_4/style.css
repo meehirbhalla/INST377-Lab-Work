@@ -352,12 +352,13 @@ form label {
   }
 
   .resto_form {
-    display: flex;
     justify-content: flex-start;
   }
 
   .box {
     width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
     justify-content: flex-start;
   }
 }
