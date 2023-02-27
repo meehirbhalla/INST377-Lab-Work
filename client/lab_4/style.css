@@ -44,7 +44,7 @@ h3 {
   margin: 0;
   padding: 0;
   padding-bottom: 1.5rem;
-  color: #8fb339;
+  color: #4b5842;
 }
 
 form {
@@ -82,6 +82,7 @@ form {
   color: #4b5842;
   font-size: 1.2rem;
   font-weight: 600;
+  margin: 0 auto;
 }
 
 /*
@@ -156,8 +157,8 @@ form {
 .footer {
   flex-shrink: 0;
   padding: 1rem;
-  background-color: #c7d59f;
-  color: #4b5842;
+  background-color: #565d45;
+  color: #c7d59f;
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -310,7 +311,7 @@ form label {
     justify-content: space-between;
     align-items: center;
   }
-  .right_section {
-    align-items: flex-start;
+  .right_section{
+    justify-content: flex-start;
   }
 }
