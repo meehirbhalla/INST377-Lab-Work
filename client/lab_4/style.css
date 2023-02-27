@@ -308,17 +308,17 @@ form label {
   /* check it out by using your developer tools to shrink your screen-size */
   .container {
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
+
   .right_section {
     flex: 1 1 auto;
-    justify-content: flex-start;
+    justify-content: start;
   }
 
   .left_section {
     flex: 1 1 auto;
-    justify-content: start;
   }
 
   .box {
