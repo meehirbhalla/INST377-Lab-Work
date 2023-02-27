@@ -8,7 +8,7 @@
 */
 
 html {
-  background-color: #daddd8;
+  background-color: white;
   font-size: 16px;
   min-width: 300px;
   overflow-x: hidden;
@@ -109,8 +109,8 @@ form {
   margin: 0; /* removing the margin on h1 tags means the header pins to the top if we move */
 
   /* box-shadows are fancy */
-  box-shadow: 0 0.5em 1em -0.125em rgb(#000000 / 10%),
-    0 0 0 1px rgb(#000000 / 2%);
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
+    0 0 0 1px rgb(10 10 10 / 2%);
 }
 
 /*
@@ -155,13 +155,12 @@ form {
 }
 
 .restaurant_list {
+  width: 100%;
   align-items: center;
   border: 2px dashed;
   padding: 1.25rem;
   border-radius: 4px;
 }
-
-
 
 /*
   This block is actually dependent on the "container" block having a flex set on it
@@ -333,25 +332,19 @@ form label {
 
   .right_section {
     flex: 1 1 auto;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-
-  .restaurant_list{
-    flex: 1 1 auto;
-    flex-direction: column;
-    align-items: center;
-    width: max-content;
+    align-items: flex-start;
   }
 
   .left_section {
     flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .box {
     width: 100%;
-    width: fill-available;
     align-items: flex-start;
   }
 }
