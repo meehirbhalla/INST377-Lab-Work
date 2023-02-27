@@ -346,11 +346,13 @@ form label {
 
   .restaurant_list {
     width: 100%;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
   .resto_form {
+    display: flex;
     justify-content: flex-start;
   }
 
