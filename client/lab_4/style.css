@@ -180,9 +180,6 @@ form {
   margin: 0;
   border: 2px dashed;
   border-radius: 4px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
 
 .footer a {
