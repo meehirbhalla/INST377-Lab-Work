@@ -311,7 +311,19 @@ form label {
     justify-content: space-between;
     align-items: center;
   }
-  .right_section{
+  .right_section {
+    flex: 1 1 auto;
     justify-content: flex-start;
+  }
+
+  .left_section {
+    flex: 1 1 auto;
+    justify-content: start;
+  }
+
+  .box {
+    width: 100%;
+    width: fill-available;
+    align-items: flex-start;
   }
 }
