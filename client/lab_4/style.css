@@ -85,7 +85,7 @@ form {
   font-size: 1.2rem;
   font-weight: 600;
   margin: 0 auto;
-  border: 2px dashed;
+  border: 2px dotted;
   border-radius: 4px;
 }
 
@@ -124,7 +124,7 @@ form {
 */
 
 .box {
-  border: 2px dashed #585a5e;
+  border: 2px dotted #585a5e;
   border-radius: 4px;
   padding: 1.5rem;
   margin: 1rem;
@@ -150,7 +150,7 @@ form {
 
 .resto_form {
   align-items: center;
-  border: 2px dashed;
+  border: 2px dotted;
   padding: 1.25rem;
   border-radius: 4px;
 }
@@ -158,7 +158,7 @@ form {
 .restaurant_list {
   width: fit-content;
   align-items: center;
-  border: 2px dashed;
+  border: 2px dotted;
   padding: 1.25rem;
   border-radius: 4px;
 }
@@ -178,7 +178,7 @@ form {
   font-weight: 600;
   padding: 1.25rem;
   margin: 0;
-  border: 2px dashed;
+  border: 2px dotted;
   border-radius: 4px;
   position: fixed;
   bottom: 0;
