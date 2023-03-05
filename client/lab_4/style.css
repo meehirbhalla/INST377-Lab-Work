@@ -149,16 +149,18 @@ form {
 }
 
 .resto_form {
+  color: rgb(243, 255, 255);
   align-items: center;
-  border: 2px dotted;
+  border: 2px dotted #7b9a34;
   padding: 1.25rem;
   border-radius: 4px;
 }
 
 .restaurant_list {
+  color: rgb(243, 255, 225);
   width: fit-content;
   align-items: center;
-  border: 2px dotted;
+  border: 2px dotted #7b9a34;
   padding: 1.25rem;
   border-radius: 4px;
 }
