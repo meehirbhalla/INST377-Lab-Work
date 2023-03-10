@@ -9,7 +9,7 @@ function filterList(list, query) {
     const lowerCaseQuery = query.toLowerCase();
     // compare equally
     return lowerCaseName.includes(lowerCaseQuery);
-  })
+  });
 }
 
 async function mainEvent() {
@@ -87,7 +87,7 @@ async function mainEvent() {
     const newList = filterList(currentList, formProps.resto);
 
     console.log(newList);
-  })
+  });
 }
 
 /*
