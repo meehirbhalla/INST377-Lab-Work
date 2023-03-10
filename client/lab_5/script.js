@@ -1,8 +1,3 @@
-/*
-  Hook this script to index.html
-  by adding `<script src="script.js">` just before your closing `</body>` tag
-*/
-
 function filterList(list, query) {
   return list.filter((item) => {
     const lowerCaseName = item.name.toLowerCase();
