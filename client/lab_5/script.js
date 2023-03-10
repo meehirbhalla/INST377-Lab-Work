@@ -15,6 +15,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     submitEvent.preventDefault(); // This prevents your page from going to http://localhost:3000/api even if your form still has an action set on it
     console.log('form submission'); // this is substituting for a "breakpoint"
 
+    let currentList = []; // scoped to main event function
     /*
       ## GET requests and Javascript
         We would like to send our GET request so we can control what we do with the results
@@ -24,10 +25,10 @@ async function mainEvent() { // the async keyword means we can make API requests
     */
 
     // this is the preferred way to handle form data in JS in 2022
-    const formData = new FormData(submitEvent.target); // get the data from the listener target
-    const formProps = Object.fromEntries(formData); // Turn it into an object
+    // const formData = new FormData(submitEvent.target); // get the data from the listener target
+    // const formProps = Object.fromEntries(formData); // Turn it into an object
 
-    console.log(formProps)
+    // console.log(formProps)
 
     // You can also access all forms in a document by using the document.forms collection
     // But this will retrieve ALL forms, not just the one that "heard" a submit event - less good
@@ -59,22 +60,22 @@ async function mainEvent() { // the async keyword means we can make API requests
     */
 
     // This changes the response from the GET into data we can use - an "object"
-    const arrayFromJson = await results.json();
-    console.table(arrayFromJson.data); // this is called "dot notation"
+    currentList = await results.json();
+    console.table(currentList); // this is called "dot notation"
     // arrayFromJson.data - we're accessing a key called 'data' on the returned object
     // it initially contains all 1,000 records from your request
   });
 
-  //filterButton.addEventListener('click', (event) => {
+  filterButton.addEventListener('click', (event) => {
     // do not need to prevent default since it is not a submit button (GET and POST req)
-    //console.log('clicked FilterButton');
+    console.log('clicked FilterButton');
 
-    //const formData = new FormData(form);
-    //const formProps = Object.fromEntries(formData);
+    const formData = new FormData(form);
+    const formProps = Object.fromEntries(formData);
 
-    //console.log(formProps);
-    // const newList = filterList();
-  //})
+    console.log(formProps);
+    const newList = filterList();
+  })
 }
 
 /*
