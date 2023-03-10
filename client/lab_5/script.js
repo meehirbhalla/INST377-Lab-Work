@@ -73,7 +73,7 @@ async function mainEvent() {
 
   filterButton.addEventListener("click", (event) => {
     // do not need to prevent default since it is not a submit button (GET and POST req)
-    console.log("clicked FilterButton");
+    console.log("clicked filterButton");
 
     const formData = new FormData(form);
     const formProps = Object.fromEntries(formData);
