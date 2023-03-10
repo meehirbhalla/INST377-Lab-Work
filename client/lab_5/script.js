@@ -3,11 +3,13 @@
   by adding `<script src="script.js">` just before your closing `</body>` tag
 */
 
+function filterList(list, query) {
+
+}
+
 async function mainEvent() { // the async keyword means we can make API requests
   const form = document.querySelector('.main_form'); // This class name needs to be set on your form before you can listen for an event on it
   const filterButton = document.querySelector('.filter_button')
-
-  let currentList = []; //scoped to main event function
 
   form.addEventListener('submit', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
     submitEvent.preventDefault(); // This prevents your page from going to http://localhost:3000/api even if your form still has an action set on it
@@ -24,6 +26,8 @@ async function mainEvent() { // the async keyword means we can make API requests
     // this is the preferred way to handle form data in JS in 2022
     const formData = new FormData(submitEvent.target); // get the data from the listener target
     const formProps = Object.fromEntries(formData); // Turn it into an object
+
+    console.log(formProps)
 
     // You can also access all forms in a document by using the document.forms collection
     // But this will retrieve ALL forms, not just the one that "heard" a submit event - less good
@@ -61,10 +65,16 @@ async function mainEvent() { // the async keyword means we can make API requests
     // it initially contains all 1,000 records from your request
   });
 
-  filterButton.addEventListener('click', (event) => {
+  //filterButton.addEventListener('click', (event) => {
     // do not need to prevent default since it is not a submit button (GET and POST req)
-    console.log('clicked FilterButton');
-  })
+    //console.log('clicked FilterButton');
+
+    //const formData = new FormData(form);
+    //const formProps = Object.fromEntries(formData);
+
+    //console.log(formProps);
+    // const newList = filterList();
+  //})
 }
 
 /*
