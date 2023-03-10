@@ -18,7 +18,7 @@ async function mainEvent() {
   const filterButton = document.querySelector(".filter_button");
 
   let currentList = []; // scoped to main event function
-  
+
   form.addEventListener("submit", async (submitEvent) => {
     // async has to be declared on every function that needs to "await" something
     submitEvent.preventDefault(); // This prevents your page from going to http://localhost:3000/api even if your form still has an action set on it
@@ -85,6 +85,8 @@ async function mainEvent() {
 
     console.log(formProps);
     const newList = filterList(currentList, formProps.resto);
+
+    console.log(newList);
   })
 }
 
