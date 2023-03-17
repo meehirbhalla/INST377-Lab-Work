@@ -52,12 +52,15 @@ async function mainEvent() {
   const loadDataButton = document.querySelector("#data_load");
   const generateListButton = document.querySelector("#generate");
 
+  const loadAnimation = document.querySelector("#data_load_animation")
+  loadAnimation.style.display = 'none';
+
   let currentList = []; // scoped to main event function
 
   loadDataButton.addEventListener("click", async (submitEvent) => {
     // async has to be declared on every function that needs to "await" something
-    submitEvent.preventDefault(); // This prevents your page from going to http://localhost:3000/api even if your form still has an action set on it
-    console.log("form submission"); // this is substituting for a "breakpoint"
+    console.log("loading data"); // this is substituting for a "breakpoint"
+    loadAnimation.style.display = "inline-block";
 
     /*
       ## GET requests and Javascript
