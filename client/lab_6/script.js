@@ -98,6 +98,7 @@ async function mainEvent() {
     console.table(currentList); // this is called "dot notation"
     // arrayFromJson.data - we're accessing a key called 'data' on the returned object
     // it initially contains all 1,000 records from your request
+    injectHTML(currentList);
   });
 
   filterButton.addEventListener("click", (event) => {
@@ -111,6 +112,7 @@ async function mainEvent() {
     const newList = filterList(currentList, formProps.resto);
 
     console.log(newList);
+    injectHTML(newList);
   });
 }
 
