@@ -39,8 +39,9 @@ function filterList(list, query) {
 function cutRestaurantList(list) {
   console.log('fired cut list');
   const range = [...Array(15).keys()];
-  const newArray = range.map((item, index) => {
-    
+  return newArray = range.map((item) => {
+    const index = getRandomIntInclusive(0, list.length - 1);
+    return list[index]
   })
 }
 
