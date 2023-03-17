@@ -1,3 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meehir Bhalla's Labs For INST377</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <h1>Meehir Bhalla's Labs For INST377</h1>
+      </header>
+      <div class="container">
+        <div class="left_section box">
+          <h3>Form Inputs</h3>
+          <form
+            action="https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json"
+            class="resto_form main_form"
+          >
+            <label for="resto">Restaurant name</label>
+            <input type="text" id="resto" name="resto" />
+            <button type="submit">Load Data</button>
+            <button type="button" class="filter_button">Filter Data</button>
+          </form>
+        </div>
+        <div class="right_section box">
+          <h3>Local Restaurants</h3>
+          <div class="restaurant_list">
+            <ol>
+              <li>Restaurant 1</li>
+              <li>Restaurant 2</li>
+              <li>Restaurant 3</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer box">
+      My GitHub account:
+      <a
+        href="https://github.com/meehirbhalla/INST377-Lab-Work"
+        target="_blank"
+        rel="noopener noreferrer"
+        >meehirbhalla</a
+      >
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
+
 <!--
     This is how to build the CSS-only load animation from loading.io    
     <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
