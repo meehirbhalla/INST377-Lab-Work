@@ -36,6 +36,14 @@ function filterList(list, query) {
   });
 }
 
+function cutRestaurantList(list) {
+  console.log('fired cut list');
+  const range = [...Array(15).keys()];
+  const newArray = range.map((item, index) => {
+    
+  })
+}
+
 async function mainEvent() {
   // the async keyword means we can make API requests
   const form = document.querySelector(".main_form"); // This class name needs to be set on your form before you can listen for an event on it
@@ -45,7 +53,7 @@ async function mainEvent() {
 
   let currentList = []; // scoped to main event function
 
-  form.addEventListener("submit", async (submitEvent) => {
+  loadDataButton.addEventListener("click", async (submitEvent) => {
     // async has to be declared on every function that needs to "await" something
     submitEvent.preventDefault(); // This prevents your page from going to http://localhost:3000/api even if your form still has an action set on it
     console.log("form submission"); // this is substituting for a "breakpoint"
@@ -116,6 +124,10 @@ async function mainEvent() {
     console.log(newList);
     injectHTML(newList);
   });
+
+  generateListButton.addEventListener("click", (event) => {
+
+  })
 }
 
 /*
