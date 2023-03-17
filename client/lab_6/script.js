@@ -17,6 +17,16 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function injectHTML(list) {
+  console.log('fired injectHTML');
+  const target = document.querySelector('#restaurant_list');
+  target.innerHTML = '';
+  list.forEach((item, index ) => {
+    const str = `<li>${item.name}</li>`;
+    target.innerHTML += str
+  })
+}
+
 function filterList(list, query) {
   return list.filter((item) => {
     const lowerCaseName = item.name.toLowerCase();
