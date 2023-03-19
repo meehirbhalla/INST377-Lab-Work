@@ -109,6 +109,7 @@ async function mainEvent() {
 
     // This changes the response from the GET into data we can use - an "object"
     currentList = await results.json();
+    loadAnimation.style.display = 'none';
     console.table(currentList); // this is called "dot notation"
     // arrayFromJson.data - we're accessing a key called 'data' on the returned object
     // it initially contains all 1,000 records from your request
