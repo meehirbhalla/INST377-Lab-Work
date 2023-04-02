@@ -55,6 +55,7 @@ async function mainEvent() {
 
   const loadAnimation = document.querySelector("#data_load_animation");
   loadAnimation.style.display = "none";
+  generateListButton.style.display = "none";
 
   let storedList = [];
   let currentList = []; // scoped to main event function
