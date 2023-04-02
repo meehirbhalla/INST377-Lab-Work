@@ -51,11 +51,11 @@ async function mainEvent() {
   const filterButton = document.querySelector("#filter_button");
   const loadDataButton = document.querySelector("#data_load");
   const generateListButton = document.querySelector("#generate");
-  const textField = document.querySelector('#resto');
+  const textField = document.querySelector("#resto");
 
   const loadAnimation = document.querySelector("#data_load_animation");
   loadAnimation.style.display = "none";
-  generateListButton.classList.add('hidden');
+  generateListButton.classList.add("hidden");
 
   let storedList = [];
   let currentList = []; // scoped to main event function
@@ -112,6 +112,10 @@ async function mainEvent() {
 
     // This changes the response from the GET into data we can use - an "object"
     storedList = await results.json();
+    if (storedList.length > 0) {
+      generateListButton.classList.remove("hidden");
+    }
+
     loadAnimation.style.display = "none";
     console.table(storedList); // this is called "dot notation"
     // arrayFromJson.data - we're accessing a key called 'data' on the returned object
@@ -135,16 +139,16 @@ async function mainEvent() {
   generateListButton.addEventListener("click", (event) => {
     console.log("generate new list");
     currentList = cutRestaurantList(storedList);
-    console.log(currentList)
+    console.log(currentList);
     injectHTML(currentList);
   });
 
-  textField.addEventListener('input', (event) => {
-    console.log('input', event.target.value);
+  textField.addEventListener("input", (event) => {
+    console.log("input", event.target.value);
     const newList = filterList(currentList, event.target.value);
     console.log(newList);
     injectHTML(newList);
-  })
+  });
 }
 
 /*
