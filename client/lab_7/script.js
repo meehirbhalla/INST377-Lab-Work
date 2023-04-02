@@ -56,6 +56,7 @@ async function mainEvent() {
   const loadAnimation = document.querySelector("#data_load_animation");
   loadAnimation.style.display = "none";
 
+  let storedList = [];
   let currentList = []; // scoped to main event function
 
   loadDataButton.addEventListener("click", async (submitEvent) => {
@@ -109,9 +110,9 @@ async function mainEvent() {
       */
 
     // This changes the response from the GET into data we can use - an "object"
-    currentList = await results.json();
+    storedList = await results.json();
     loadAnimation.style.display = "none";
-    console.table(currentList); // this is called "dot notation"
+    console.table(storedList); // this is called "dot notation"
     // arrayFromJson.data - we're accessing a key called 'data' on the returned object
     // it initially contains all 1,000 records from your request
   });
@@ -132,13 +133,14 @@ async function mainEvent() {
 
   generateListButton.addEventListener("click", (event) => {
     console.log("generate new list");
-    const restaurantsList = cutRestaurantList(currentList);
-    injectHTML(restaurantsList);
+    currentList = cutRestaurantList(storedList);
+    console.log(currentList)
+    injectHTML(currentList);
   });
 
   textField.addEventListener('input', (event) => {
     console.log('input', event.target.value);
-    const newList = filterList(currentList, formProps.resto);
+    const newList = filterList(currentList, event.target.value);
     console.log(newList);
     injectHTML(newList);
   })
