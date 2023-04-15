@@ -125,7 +125,7 @@ async function mainEvent() {
     }
 
     loadAnimation.style.display = "none";
-    console.table(storedList); // this is called "dot notation"
+    // console.table(storedList); // this is called "dot notation"
     // arrayFromJson.data - we're accessing a key called 'data' on the returned object
     // it initially contains all 1,000 records from your request
   });
@@ -147,6 +147,7 @@ async function mainEvent() {
   generateListButton.addEventListener("click", (event) => {
     console.log("generate new list");
     const recallList = localStorage.getItem('storedData');
+    console.log(recallList);
     
     currentList = cutRestaurantList(storedList);
     console.log(currentList);
