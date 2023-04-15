@@ -1,11 +1,3 @@
-// Leaflet can be a bit old-fashioned.
-// Here's some code to remove map markers.
-map.eachLayer((layer) => {
-  if (layer instanceof L.Marker) {
-    layer.remove();
-  }
-});
-
 /* eslint-disable max-len */
 
 /*
@@ -65,6 +57,7 @@ async function mainEvent() {
   loadAnimation.style.display = "none";
   generateListButton.classList.add("hidden");
 
+  let storedList = [];
   let currentList = []; // scoped to main event function
 
   loadDataButton.addEventListener("click", async (submitEvent) => {
@@ -118,14 +111,13 @@ async function mainEvent() {
       */
 
     // This changes the response from the GET into data we can use - an "object"
-    const storedList = await results.json();
-    localStorage.setItem('storedData', JSON.stringify(storedList));
+    storedList = await results.json();
     if (storedList.length > 0) {
       generateListButton.classList.remove("hidden");
     }
 
     loadAnimation.style.display = "none";
-    // console.table(storedList); // this is called "dot notation"
+    console.table(storedList); // this is called "dot notation"
     // arrayFromJson.data - we're accessing a key called 'data' on the returned object
     // it initially contains all 1,000 records from your request
   });
@@ -146,9 +138,6 @@ async function mainEvent() {
 
   generateListButton.addEventListener("click", (event) => {
     console.log("generate new list");
-    const recallList = localStorage.getItem('storedData');
-    console.log(recallList);
-    
     currentList = cutRestaurantList(storedList);
     console.log(currentList);
     injectHTML(currentList);
@@ -168,3 +157,12 @@ async function mainEvent() {
     In this case, we load some data when the form has submitted
   */
 document.addEventListener("DOMContentLoaded", async () => mainEvent()); // the async keyword means we can make API requests
+
+// Leaflet can be a bit old-fashioned.
+// Here's some code to remove map markers.
+map.eachLayer((layer) => {
+  if (layer instanceof L.Marker) {
+    layer.remove();
+  }
+});
+
