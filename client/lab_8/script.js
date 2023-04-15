@@ -59,7 +59,9 @@ async function mainEvent() {
 
   const storedData = localStorage.getItem('storedData');
   const parsedData = JSON.parse(storedData);
-
+  if (parsedData.length > 0) {
+    generateListButton.classList.remove("hidden");
+  }
   let currentList = []; // scoped to main event function
 
   loadDataButton.addEventListener("click", async (submitEvent) => {
@@ -141,9 +143,6 @@ async function mainEvent() {
 
   generateListButton.addEventListener("click", (event) => {
     console.log("generate new list");
-    const recallList = localStorage.getItem('storedData');
-    const storedList = JSON.parse(recallList);
-
     currentList = cutRestaurantList(storedList);
     console.log(currentList);
     injectHTML(currentList);
