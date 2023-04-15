@@ -57,7 +57,6 @@ async function mainEvent() {
   loadAnimation.style.display = "none";
   generateListButton.classList.add("hidden");
 
-  let storedList = [];
   let currentList = []; // scoped to main event function
 
   loadDataButton.addEventListener("click", async (submitEvent) => {
@@ -111,7 +110,8 @@ async function mainEvent() {
       */
 
     // This changes the response from the GET into data we can use - an "object"
-    storedList = await results.json();
+    const storedList = await results.json();
+    localStorage.setItem('storedData', JSON.stringify(storedList));
     if (storedList.length > 0) {
       generateListButton.classList.remove("hidden");
     }
