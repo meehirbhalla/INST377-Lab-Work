@@ -64,6 +64,8 @@ async function mainEvent() {
   loadAnimation.style.display = "none";
   generateListButton.classList.add("hidden");
 
+  initMap();
+
   const storedData = localStorage.getItem('storedData');
   const parsedData = JSON.parse(storedData);
   if (parsedData.length > 0) {
