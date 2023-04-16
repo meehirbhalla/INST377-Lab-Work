@@ -48,6 +48,7 @@ function cutRestaurantList(list) {
 async function mainEvent() {
   // the async keyword means we can make API requests
   const form = document.querySelector(".main_form"); // This class name needs to be set on your form before you can listen for an event on it
+  const filterButton = document.querySelector("#filter_button");
   const loadDataButton = document.querySelector("#data_load");
   const generateListButton = document.querySelector("#generate");
   const textField = document.querySelector("#resto");
@@ -56,12 +57,7 @@ async function mainEvent() {
   loadAnimation.style.display = "none";
   generateListButton.classList.add("hidden");
 
-  const storedData = localStorage.getItem('storedData');
-  const parsedData = JSON.parse(storedData);
-  if (parsedData.length > 0) {
-    generateListButton.classList.remove("hidden");
-  }
-
+  let storedList = [];
   let currentList = []; // scoped to main event function
 
   loadDataButton.addEventListener("click", async (submitEvent) => {
@@ -115,13 +111,29 @@ async function mainEvent() {
       */
 
     // This changes the response from the GET into data we can use - an "object"
-    const storedList = await results.json();
-    localStorage.setItem('storedData', JSON.stringify(storedList));
+    storedList = await results.json();
+    if (storedList.length > 0) {
+      generateListButton.classList.remove("hidden");
+    }
 
     loadAnimation.style.display = "none";
-    // console.table(storedList); // this is called "dot notation"
+    console.table(storedList); // this is called "dot notation"
     // arrayFromJson.data - we're accessing a key called 'data' on the returned object
     // it initially contains all 1,000 records from your request
+  });
+
+  filterButton.addEventListener("click", (event) => {
+    // do not need to prevent default since it is not a submit button (GET and POST req)
+    console.log("clicked filterButton");
+
+    const formData = new FormData(form);
+    const formProps = Object.fromEntries(formData);
+
+    console.log(formProps);
+    const newList = filterList(currentList, formProps.resto);
+
+    console.log(newList);
+    injectHTML(newList);
   });
 
   generateListButton.addEventListener("click", (event) => {
@@ -145,6 +157,7 @@ async function mainEvent() {
     In this case, we load some data when the form has submitted
   */
 document.addEventListener("DOMContentLoaded", async () => mainEvent()); // the async keyword means we can make API requests
+
 
 // Leaflet can be a bit old-fashioned.
 // Here's some code to remove map markers.
