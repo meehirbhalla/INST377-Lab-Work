@@ -48,7 +48,6 @@ function cutRestaurantList(list) {
 async function mainEvent() {
   // the async keyword means we can make API requests
   const form = document.querySelector(".main_form"); // This class name needs to be set on your form before you can listen for an event on it
-  const filterButton = document.querySelector("#filter_button");
   const loadDataButton = document.querySelector("#data_load");
   const generateListButton = document.querySelector("#generate");
   const textField = document.querySelector("#resto");
@@ -124,23 +123,9 @@ async function mainEvent() {
     // it initially contains all 1,000 records from your request
   });
 
-  filterButton.addEventListener("click", (event) => {
-    // do not need to prevent default since it is not a submit button (GET and POST req)
-    console.log("clicked filterButton");
-
-    const formData = new FormData(form);
-    const formProps = Object.fromEntries(formData);
-
-    console.log(formProps);
-    const newList = filterList(currentList, formProps.resto);
-
-    console.log(newList);
-    injectHTML(newList);
-  });
-
   generateListButton.addEventListener("click", (event) => {
     console.log("generate new list");    
-    currentList = cutRestaurantList(storedList);
+    currentList = cutRestaurantList(parsedData);
     console.log(currentList);
     injectHTML(currentList);
   });
