@@ -221,6 +221,13 @@ form {
   border-radius: 4px;
 }
 
+.map_format {
+  width: fit-content;
+  height: fit-content;
+  border: 2px dotted #7b9a34;
+  padding: 10rem;
+}
+
 /*
         This block is actually dependent on the "container" block having a flex set on it
         and the "wrapper" block displaying as a flex column with a "vertical height" (vh) of 100.
