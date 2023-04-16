@@ -416,6 +416,13 @@ form label {
     justify-content: flex-start;
   }
 
+  #map {
+    width: 400px;
+    height: 380px;
+    border: 2px dashed rgb(99, 99, 99);
+    margin-bottom: 1rem;
+  }
+  
   .box {
     width: 100%;
     width: -moz-available;
