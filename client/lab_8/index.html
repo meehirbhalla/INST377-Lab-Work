@@ -33,12 +33,13 @@
             <label for="resto">Filter By Restaurant name</label>
             <input type="text" id="resto" name="resto" />
             <button type="button" id="data_load">Load County Data</button>
+            <button type="button" id="data_clear">Clear County Data</button>
             <button type="button" id="generate">Generate List</button>
           </form>
         </div>
         <div class="right_section box">
           <h3>Local Restaurants</h3>
-          <div id="map" class = "box"></div>
+          <div id="map" class="restaurant_list"></div>
           <ol class="restaurant_list" id="restaurant_list">
             A list of local restaurants.
             <div class="lds-ellipsis" id="data_load_animation"><div></div><div></div><div></div><div></div></div>
