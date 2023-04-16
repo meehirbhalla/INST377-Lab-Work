@@ -158,7 +158,6 @@ async function mainEvent() {
   */
 document.addEventListener("DOMContentLoaded", async () => mainEvent()); // the async keyword means we can make API requests
 
-
 // Leaflet can be a bit old-fashioned.
 // Here's some code to remove map markers.
 // map.eachLayer((layer) => {
@@ -166,4 +165,3 @@ document.addEventListener("DOMContentLoaded", async () => mainEvent()); // the a
 //     layer.remove();
 //   }
 // });
-
