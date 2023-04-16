@@ -117,9 +117,7 @@ async function mainEvent() {
     // This changes the response from the GET into data we can use - an "object"
     const storedList = await results.json();
     localStorage.setItem('storedData', JSON.stringify(storedList));
-    if (storedList.length > 0) {
-      generateListButton.classList.remove("hidden");
-    }
+
     loadAnimation.style.display = "none";
     // console.table(storedList); // this is called "dot notation"
     // arrayFromJson.data - we're accessing a key called 'data' on the returned object
