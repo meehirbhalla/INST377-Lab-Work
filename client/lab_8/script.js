@@ -87,7 +87,7 @@ async function mainEvent() {
 
   const storedData = localStorage.getItem('storedData');
   let parsedData = JSON.parse(storedData);
-  if (storedList?.length > 0) {
+  if (parsedData?.length > 0) {
     generateListButton.classList.remove("hidden");
   }
   
@@ -147,7 +147,6 @@ async function mainEvent() {
     const storedList = await results.json();
     localStorage.setItem('storedData', JSON.stringify(storedList));
     parsedData = storedList;
-
     if (parsedData?.length > 0) {
       generateListButton.classList.remove("hidden");
     }
@@ -173,13 +172,13 @@ async function mainEvent() {
     injectHTML(newList);
     markerPlace(newList, carto);
   });
-}
 
   clearDataButton.addEventListener("click", (event) => {
     console.log('clear browser data');
     localStorage.clear();
     console.log('localStorage Check', localStorage.getItem("storedData"))
   })
+}
 /*
     This adds an event listener that fires our main event only once our page elements have loaded
     The use of the async keyword means we can "await" events before continuing in our scripts
