@@ -45,6 +45,14 @@ function cutRestaurantList(list) {
   }));
 }
 
+function initMap(){
+  const carto = L.map('map').setView([51.505, -0.09], 13);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(carto);
+}
+
 async function mainEvent() {
   // the async keyword means we can make API requests
   const form = document.querySelector(".main_form"); // This class name needs to be set on your form before you can listen for an event on it
