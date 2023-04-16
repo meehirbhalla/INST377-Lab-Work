@@ -62,6 +62,7 @@ async function mainEvent() {
   if (parsedData.length > 0) {
     generateListButton.classList.remove("hidden");
   }
+
   let currentList = []; // scoped to main event function
 
   loadDataButton.addEventListener("click", async (submitEvent) => {
@@ -120,7 +121,6 @@ async function mainEvent() {
     if (storedList.length > 0) {
       generateListButton.classList.remove("hidden");
     }
-
     loadAnimation.style.display = "none";
     // console.table(storedList); // this is called "dot notation"
     // arrayFromJson.data - we're accessing a key called 'data' on the returned object
