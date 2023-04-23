@@ -72,6 +72,57 @@ function markerPlace(array, map) {
   });
 }
 
+function initChart(chart) {
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+
+  return new Chart(
+    chart,
+    config
+  );
+}
+
+function shapeDataForLineChart(array) {
+  return array.reduce((collection, item) => {
+    if(!collection[item.category]) {
+      collection[item.category] = [item]
+    } else {
+      collection[item.category].push(item);
+    }
+    return collection;
+  }, {});
+}
+
+async function getData() {
+  const url = "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json";
+  const data = await fetch(url);
+  const json = await data.json();
+  const reply = json.filter((item) => Boolean(item.geocoded_column_1)).filter((item) => Boolean(item.name));
+  return reply;
+}
+
 async function mainEvent() {
   // the async keyword means we can make API requests
   const form = document.querySelector(".main_form"); // This class name needs to be set on your form before you can listen for an event on it
@@ -79,12 +130,13 @@ async function mainEvent() {
   const clearDataButton = document.querySelector("#data_clear");
   const generateListButton = document.querySelector("#generate");
   const textField = document.querySelector("#resto");
+  const chartTarget = document.querySelector('#myChart');
 
   const loadAnimation = document.querySelector("#data_load_animation");
   loadAnimation.style.display = "none";
   generateListButton.classList.add("hidden");
 
-  const carto = initMap();
+  // const carto = initMap();
 
   const storedData = localStorage.getItem("storedData");
   let parsedData = JSON.parse(storedData);
@@ -148,6 +200,10 @@ async function mainEvent() {
     const storedList = await results.json();
     localStorage.setItem("storedData", JSON.stringify(storedList));
     parsedData = storedList;
+
+    initChart(chartTarget);
+    const chartData = await getData();
+
     if (parsedData?.length > 0) {
       generateListButton.classList.remove("hidden");
     }
@@ -163,7 +219,7 @@ async function mainEvent() {
     currentList = cutRestaurantList(parsedData);
     console.log(currentList);
     injectHTML(currentList);
-    markerPlace(currentList, carto);
+    // markerPlace(currentList, carto);
   });
 
   textField.addEventListener("input", (event) => {
@@ -171,7 +227,7 @@ async function mainEvent() {
     const newList = filterList(currentList, event.target.value);
     console.log(newList);
     injectHTML(newList);
-    markerPlace(newList, carto);
+    // markerPlace(newList, carto);
   });
 
   clearDataButton.addEventListener("click", (event) => {

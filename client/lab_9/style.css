@@ -228,6 +228,11 @@ form {
   padding: 10rem;
 }
 
+.chart_container {
+  width: 700px;
+  height: 500px;
+}
+
 /*
           This block is actually dependent on the "container" block having a flex set on it
           and the "wrapper" block displaying as a flex column with a "vertical height" (vh) of 100.
@@ -424,6 +429,12 @@ form label {
   }
 
   #map {
+    width: 400px;
+    height: 380px;
+    margin-bottom: 1rem;
+  }
+
+  #chart {
     width: 400px;
     height: 380px;
     margin-bottom: 1rem;

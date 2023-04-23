@@ -11,11 +11,13 @@
     crossorigin=""/>
 
     <link rel="stylesheet" href="style.css" />
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    <!-- <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-    crossorigin=""></script>
+    crossorigin=""></script> -->
 
   </head>
   <body>
@@ -39,7 +41,11 @@
         </div>
         <div class="right_section box">
           <h3>Local Restaurants</h3>
-          <div id="map" class="map_format"></div>
+          <!-- chart.js -->
+          <div id="chart" class="chart_container">
+            <canvas id="myChart"></canvas>
+          </div>
+          <!-- <div id="map" class="map_format"></div> -->
           <ol class="restaurant_list" id="restaurant_list">
             A list of local restaurants.
             <div class="lds-ellipsis" id="data_load_animation"><div></div><div></div><div></div><div></div></div>
