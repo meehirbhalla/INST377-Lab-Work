@@ -72,23 +72,17 @@ function markerPlace(array, map) {
   });
 }
 
-function initChart(chart) {
-  const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-  ];
+function initChart(chart, object) {
+  const labels = Object.keys(object);
+  const info = Object.keys(object).map((item) => object[item].length);
 
   const data = {
     labels: labels,
     datasets: [{
-      label: 'My First dataset',
+      label: 'Restaurants by Category',
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
+      data: info,
     }]
   };
 
@@ -102,6 +96,19 @@ function initChart(chart) {
     chart,
     config
   );
+}
+
+function changeChart(chart, dataObject) {
+  const labels = Object.keys(dataObject);
+  const info = Object.keys(dataObject).map((item) => dataObject[item].length);
+
+
+  chart.data.labels = labels;
+  chart.data.datasets.forEach((set) => {
+    set.data = info;
+    return set;
+  })
+  chart.update();
 }
 
 function shapeDataForLineChart(array) {
@@ -201,8 +208,9 @@ async function mainEvent() {
     localStorage.setItem("storedData", JSON.stringify(storedList));
     parsedData = storedList;
 
-    initChart(chartTarget);
     const chartData = await getData();
+    const shapedData = shapeDataForLineChart(chartData);
+    const myChart = initChart(chartTarget, shapedData);
 
     if (parsedData?.length > 0) {
       generateListButton.classList.remove("hidden");
@@ -218,7 +226,14 @@ async function mainEvent() {
     console.log("generate new list");
     currentList = cutRestaurantList(parsedData);
     console.log(currentList);
+
     injectHTML(currentList);
+    const localData = shapeDataForLineChart(chartData);
+    changeChart(myChart, localData);
+
+    const shapedData = shapeDataForLineChart(currentList);
+    changeChart(myChart, shapedData);
+
     // markerPlace(currentList, carto);
   });
 
