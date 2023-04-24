@@ -228,8 +228,6 @@ async function mainEvent() {
     console.log(currentList);
 
     injectHTML(currentList);
-    const localData = shapeDataForLineChart(chartData);
-    changeChart(myChart, localData);
 
     const shapedData = shapeDataForLineChart(currentList);
     changeChart(myChart, shapedData);
@@ -242,6 +240,8 @@ async function mainEvent() {
     const newList = filterList(currentList, event.target.value);
     console.log(newList);
     injectHTML(newList);
+    const localData = shapeDataForLineChart(chartData);
+    changeChart(myChart, localData);
     // markerPlace(newList, carto);
   });
 
